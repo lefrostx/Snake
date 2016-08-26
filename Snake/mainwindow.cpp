@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer, &QTimer::timeout, this, &MainWindow::moveSnake);
     timer->start(100);
 
-    map = new Snake::Map(ui->panel);
+    game = new GameSnake::GameMain(ui->panel, this);
 }
 
 MainWindow::~MainWindow()
@@ -25,15 +25,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::moveSnake()
 {
-    map->moveSnake();
+    game->moveSnake();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *pe)
 {
     switch(pe->key()) {
-    case Qt::Key_Up:     map->turnUp();      break;
-    case Qt::Key_Down:   map->turnDown();    break;
-    case Qt::Key_Left:   map->turnLeft();    break;
-    case Qt::Key_Right:  map->turnRight();   break;
+    case Qt::Key_Up:     game->turnUp();      break;
+    case Qt::Key_Down:   game->turnDown();    break;
+    case Qt::Key_Left:   game->turnLeft();    break;
+    case Qt::Key_Right:  game->turnRight();   break;
     }
 }

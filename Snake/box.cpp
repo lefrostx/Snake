@@ -2,13 +2,13 @@
 #include <QString>
 #include "box.h"
 
-Snake::Box::Box(Snake::Cell cell, QWidget *parent) :
+GameSnake::Box::Box(GameSnake::Cell cell, QWidget *parent) :
     QLabel{parent}
 {
     setCell(cell);
 }
 
-void Snake::Box::setCell(Snake::Cell cell)
+void GameSnake::Box::setCell(GameSnake::Cell cell)
 {
     QString filename;
 

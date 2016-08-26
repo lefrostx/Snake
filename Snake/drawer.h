@@ -1,17 +1,27 @@
-#ifndef DRAWER_H
-#define DRAWER_H
+#ifndef SNAKE_DRAWER_H
+#define SNAKE_DRAWER_H
 
 #include <QWidget>
+#include <boost/numeric/ublas/matrix.hpp>
+#include "cell.h"
+#include "box.h"
 
-class Drawer : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit Drawer(QWidget *parent = 0);
+using boost::numeric::ublas::matrix;
 
-signals:
+namespace GameSnake {
 
-public slots:
-};
+    constexpr int cellSize = 30;
 
-#endif // DRAWER_H
+    class Drawer : public QWidget {
+
+    public:
+        explicit Drawer(QWidget* panel, QWidget *parent = 0);
+        void setCell(int row, int col, GameSnake::Cell cell);
+
+    private:
+        matrix<Box*> boxes;
+    };
+
+}
+
+#endif // SNAKE_DRAWER_H

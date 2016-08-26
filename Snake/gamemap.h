@@ -1,49 +1,33 @@
 #ifndef SNAKE_MAP_H
 #define SNAKE_MAP_H
 
-#include <QLabel>
 #include <boost/numeric/ublas/matrix.hpp>
-#include "cell.h"
-#include "box.h"
 #include <queue>
+#include <functional>
+#include "cell.h"
+#include "coord.h"
 
 using boost::numeric::ublas::matrix;
 
-namespace Snake {
+namespace GameSnake {
 
-    struct Point {
-        int row;
-        int col;
-    };
+    class Map {
+        friend class Snake;
 
-    inline bool operator == (Point p1, Point p2)
-    {
-        return p1.row == p2.row && p1.col == p2.col;
-    }
-
-    class Map : public QWidget {
     public:
-        explicit Map(QWidget *parent);
-        void turnLeft();
-        void turnRight();
-        void turnUp();
-        void turnDown();
-        void moveSnake();
+        explicit Map(int rows, int cols, std::function<void(int, int, Cell)> showFunc);
 
     private:
         using size_type = matrix<Cell>::size_type;
 
+        std::function<void(int, int, Cell)> showCell;
+
         void createWall();
         void addRabbit();
-        void addSnake();
-        bool inRange(Point point);
+        std::queue<Coord> addSnake();
+        bool inRange(Coord point);
 
         matrix<Cell> data;
-        matrix<Box*> boxes;
-        std::queue<Point> snake;
-        Point head;
-        int srow;
-        int scol;
     };
 
 }

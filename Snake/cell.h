@@ -1,7 +1,7 @@
 #ifndef SNAKE_CELL_H
 #define SNAKE_CELL_H
 
-namespace Snake {
+namespace GameSnake {
 
     enum class Cell {
         empty,

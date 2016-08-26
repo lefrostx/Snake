@@ -4,7 +4,7 @@
 #include <QLabel>
 #include "cell.h"
 
-namespace Snake {
+namespace GameSnake {
 
     class Box : public QLabel {
     public:

@@ -16,13 +16,20 @@ CONFIG += c++14
 SOURCES += main.cpp\
         mainwindow.cpp \
     box.cpp \
-    gamemap.cpp
+    gamemap.cpp \
+    gamemain.cpp \
+    drawer.cpp \
+    snake.cpp
 
 HEADERS  += mainwindow.h \
     box.h \
     cell.h \
     mathematic.h \
-    gamemap.h
+    gamemap.h \
+    gamemain.h \
+    drawer.h \
+    snake.h \
+    coord.h
 
 FORMS    += mainwindow.ui
 

@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "gamemap.h"
+#include "gamemain.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,7 +24,8 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-    Snake::Map* map;
+
+    GameSnake::GameMain *game;
 };
 
 #endif // MAINWINDOW_H
