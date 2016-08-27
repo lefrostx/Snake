@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->panel->resize(910, 610);
+    ui->panel->resize(900, 600);
     QTimer *timer = new QTimer(this);
 
     connect(timer, &QTimer::timeout, this, &MainWindow::moveSnake);

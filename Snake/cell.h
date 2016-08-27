@@ -7,7 +7,8 @@ namespace GameSnake {
         empty,
         wall,
         rabbit,
-        snake
+        snake,
+        head
     };
 
 }

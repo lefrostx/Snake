@@ -17,24 +17,28 @@ void GameSnake::Snake::move()
             return;
 
         if (map.data(newHead.row, newHead.col) == Cell::empty) {
-            head = newHead;
+
 
             Coord tail = body.front();
             body.pop();
-            body.push(head);
+            body.push(newHead);
 
             map.data(tail.row, tail.col) = Cell::empty;
             map.data(head.row, head.col) = Cell::snake;
+            map.data(newHead.row, newHead.col) = Cell::head;
 
             map.showCell(tail.row, tail.col, Cell::empty);
             map.showCell(head.row, head.col, Cell::snake);
-        } else if (map.data(newHead.row, newHead.col) == Cell::rabbit) {
+            map.showCell(newHead.row, newHead.col, Cell::head);
             head = newHead;
-
-            body.push(head);
+        } else if (map.data(newHead.row, newHead.col) == Cell::rabbit) {
+            body.push(newHead);
 
             map.data(head.row, head.col) = Cell::snake;
+            map.data(newHead.row, newHead.col) = Cell::head;
             map.showCell(head.row, head.col, Cell::snake);
+            map.showCell(newHead.row, newHead.col, Cell::snake);
+            head = newHead;
 
             map.addRabbit();
         }

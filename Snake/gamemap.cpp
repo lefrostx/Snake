@@ -65,7 +65,7 @@ std::queue<GameSnake::Coord> GameSnake::Map::addSnake()
             data(row, col+1) = Cell::snake;
             showCell(row, col+1, Cell::snake);
             data(row, col+2) = Cell::snake;
-            showCell(row, col+2, Cell::snake);
+            showCell(row, col+2, Cell::head);
 
             snake.push(Coord{row, col});
             snake.push(Coord{row, col+1});

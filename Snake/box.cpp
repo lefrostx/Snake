@@ -17,6 +17,7 @@ void GameSnake::Box::setCell(GameSnake::Cell cell)
     case Cell::wall:    filename = ":/wall.png";    break;
     case Cell::rabbit:  filename = ":/rabbit.png";  break;
     case Cell::snake:   filename = ":/snake.png";   break;
+    case Cell::head:    filename = ":/head.png";   break;
     }
 
     setPixmap(filename);
